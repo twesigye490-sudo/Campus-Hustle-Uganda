@@ -135,6 +135,7 @@
 <footer>&copy; 2026 Campus Hustle Uganda</footer>
 
 <script>
+    let validCodes = ["CHU-001"];
     const data = {
         "O": {
             "Notes": {
@@ -230,7 +231,6 @@
     // Add code to validCodes array
     validCodes.push(code);
 
-    alert(`Your unique code: ${code}\nUse it in the activation box after payment.`);
 
     const msg = `Hello Daniel, I've paid 10,000 UGX for Campus Hustle Premium.%0A*Name:* ${name}%0A*Number:* ${phone}%0A*Code:* ${code}%0A(Attaching screenshot)`;
     window.open(`https://wa.me/256793467236?text=${msg}`, "_blank");
