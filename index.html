@@ -9,70 +9,154 @@
         :root {
             --primary: #eb2525;
             --secondary: #0e12e9;
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --accent: #38bdf8;
+            --gold: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.05);                                                                                                                                                                                                                 
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --card-hover: translateY(-5px);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; transition: 0.3s; scroll-behavior: smooth; }
         
-        body.dark { background: #044108; color: white; }
-        body.light { background: #f1f9f4; color: #1e3b22; }
-
+        body.dark { background: #041c08; color: #e2e8f0; }
+        body.light { background: #f8fafc; color: #0f172a; }
+        /* NAVBAR & SEARCH */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 5%; position: sticky; top: 0; z-index: 1000;
-            background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-        }
-        nav h2 { font-size: 1.5rem; color: #38bdf8; }
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav a { text-decoration: none; color: inherit; font-weight: 500; font-size: 0.9rem; }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+        nav h2 { font-size: 1.5rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent); }
+        
+        .search-container { position: relative; flex-grow: 1; max-width: 300px; }
+        .search-container input { width: 100%; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--accent); background: var(--glass); color: white; outline: none; }
+
+        nav h2 { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: white; font-weight: 500; font-size: 0.9rem; }
+        nav a:hover { color: var(--accent); }
         
         .hero {
-            padding: 80px 5%; text-align: center;
-            background: radial-gradient(circle at top, #1e3a8a 0%, #0b0f1a 100%);
-            color: white;
+            padding: 100px 5%; text-align: center;
+            background: radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+            color: white; border-bottom: 1px solid var(--glass-border);
         }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(to right, var(--accent), var(--gold)); -webkit-background-clip: text; color: transparent; }
 
-        .level-tabs { display: flex; justify-content: center; gap: 15px; margin-top: 25px; }
+        .level-tabs { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
         .tab-btn {
-            padding: 12px 30px; border-radius: 50px; border: 2px solid var(--secondary);
+            padding: 12px 35px; border-radius: 50px; border: 2px solid var(--accent);
             background: transparent; color: white; cursor: pointer; font-weight: bold;
         }
-        .tab-btn.active { background: var(--secondary); }
+        .tab-btn.active { background: var(--accent); color: #0f172a; }
 
-        section { padding: 40px 8%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+       
         
-        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 20px; border-radius: 15px; }
-        .card h3 { color: #38bdf8; margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
         
+        /* Cards General */
+        .card { 
+            background: var(--glass); border: 1px solid var(--glass-border); 
+            padding: 25px; border-radius: 20px; backdrop-filter: blur(10px);
+        }
+        .card:hover { transform: var(--card-hover); border-color: var(--accent); box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1); }
+        
+        .card h3 { color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
+        
+        /* Notes UI */
         .note-item {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 10px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; font-size: 0.9rem;
+            margin-bottom: 12px; background: rgba(0,0,0,0.3); padding: 12px 15px; border-radius: 10px; font-size: 0.9rem;
         }
+        /* SECTIONS & GRID */
+        section { padding: 60px 8%; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--accent); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 25px; border-radius: 20px; backdrop-filter: blur(10px); }
+        .card:hover { transform: var(--card-hover); border-color: var(--primary); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
 
-        .btn { padding: 10px 16px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; background: var(--primary); color: white; }
-        .btn-view { background: var(--secondary); font-size: 0.8rem; }
+        /* Buttons */
+        .btn { padding: 12px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; color: white; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-primary { background: var(--primary); }
+        .btn-primary:hover { background: #c51f1f; }
+        .btn-secondary { background: var(--secondary); }
+        .btn-view { background: rgba(56, 189, 248, 0.2); color: var(--accent); padding: 8px 12px; font-size: 0.8rem; }
+        .btn-view:hover { background: var(--accent); color: #000; }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-whatsapp { background: #25D366; color: white; width: 100%; margin-top: 15px; }
 
-        #sample-papers { background: rgba(0,0,0,0.1); text-align: center; border-radius: 20px; margin: 20px; }
-        .paper-card {
-            background: rgba(0,0,0,0.4); border: 2px solid #fbbf24; 
-            padding: 25px; border-radius: 15px;
-        }
-        .lock-status { font-size: 0.7rem; color: #fbbf24; font-weight: 800; }
+        /* Store & Services Cards */
+        .service-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .store-item { text-align: center; }
+        .store-item h4 { margin: 10px 0; color: #fff; }
+        .store-price { color: var(--gold); font-weight: bold; margin-bottom: 10px; display: block; }
+        .category-title { color: white; margin: 40px 0 20px 0; border-left: 4px solid var(--accent); padding-left: 10px; font-size: 1.5rem; }
 
-        .premium-box { max-width: 500px; margin: 0 auto; background: var(--glass); padding: 30px; border-radius: 20px; border: 2px solid var(--secondary); }
-        input { width: 100%; padding: 14px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.1); color: inherit; }
+        /* Sample Papers */
+        #sample-papers { background: rgba(0,0,0,0.2); border-radius: 30px; margin: 20px 5%; padding: 60px 5%; }
+        .paper-card { background: rgba(0,0,0,0.5); border: 1px solid var(--gold); padding: 25px; border-radius: 15px; text-align: center; }
+        .lock-status { font-size: 0.75rem; color: var(--gold); font-weight: 800; letter-spacing: 1px; padding: 4px 10px; background: rgba(251, 191, 36, 0.1); border-radius: 20px; display: inline-block; }
+        /* MODALS (Full Screen Pages) */
+        .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: #020617; z-index:9999; flex-direction:column; overflow-y: auto; }
+        .modal-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.5); border-bottom: 1px solid var(--glass-border); }
+        .close-btn { background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        /* CASIO CALCULATOR */
+        #calc-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9000; }
+        .calc-toggle { width: 60px; height: 60px; border-radius: 50%; background: var(--primary); color: white; font-size: 1.5rem; border: none; cursor: pointer; box-shadow: 0 0 20px rgba(139,92,246,0.5); }
+        .calculator { display: none; width: 320px; background: #1e1e24; padding: 20px; border-radius: 15px; border: 2px solid #333; box-shadow: 0 15px 30px rgba(0,0,0,0.8); position: absolute; bottom: 80px; right: 0; }
+        .calc-screen { width: 100%; height: 60px; background: #a5b9a4; border-radius: 5px; margin-bottom: 15px; text-align: right; padding: 10px; font-family: 'Courier New', monospace; font-size: 1.5rem; color: #000; overflow: hidden; border: inset 2px #777; }
+        .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .calc-btn { padding: 15px 0; border-radius: 5px; border: none; font-weight: bold; cursor: pointer; background: #333; color: white; font-size: 1.1rem; }
+        .calc-btn:hover { background: #555; }
+        .calc-func { background: #4b5563; }
+        .calc-ac { background: #ef4444; }
+        .calc-eq { background: var(--accent); color: black; }
+        /* QUICK QUESTIONS UI */
+        .quiz-container { max-width: 800px; margin: 40px auto; padding: 20px; }
+        .question-box { background: var(--glass); padding: 30px; border-radius: 15px; border: 1px solid var(--primary); margin-bottom: 20px; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .option-btn { padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: 8px; color: white; cursor: pointer; text-align: left; }
+        .option-btn:hover { background: var(--primary); }
+        .feedback { margin-top: 15px; padding: 15px; border-radius: 8px; display: none; font-weight: bold; }
+        .feedback.correct { background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid #22c55e; }
+        .feedback.wrong { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
 
-        #pdfModal {
-            display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.95); z-index:9999; flex-direction:column;
-        }
+        /* AI MATH SOLVER UI */
+        .ai-math-box { max-width: 600px; margin: 50px auto; background: var(--glass); padding: 30px; border-radius: 20px; border: 1px solid var(--accent); text-align: center; }
+        .file-upload { border: 2px dashed var(--accent); padding: 40px; border-radius: 10px; cursor: pointer; margin-bottom: 20px; }
+        .file-upload:hover { background: rgba(6, 182, 212, 0.1); }
+        .ai-response { display: none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.5); border-left: 4px solid var(--primary); text-align: left; }
+
+        /* Premium Box */
+        .premium-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .premium-box { background: var(--glass); padding: 35px; border-radius: 20px; border: 2px solid var(--gold); position: relative; overflow: hidden; }
+        .premium-box h2 { text-align:center; color: var(--gold); margin-bottom: 10px; }
+        input { width: 100%; padding: 14px; margin: 10px 0; border-radius: 8px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); color: white; outline: none; }
+        input:focus { border-color: var(--gold); }
+        
+        /* Share Progress */
+        .progress-bg { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 15px 0; overflow: hidden; }
+        .progress-bar { height: 100%; width: 0%; background: #25D366; transition: width 0.5s ease; }
+        .share-text { text-align: center; font-size: 0.9rem; color: #aaa; margin-bottom: 10px; }
+
+        #pdfModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; flex-direction:column; }
         #pdfFrame { flex-grow: 1; border: none; background: white; width: 100%; height: 100%; }
-        .modal-controls { padding: 15px; display: flex; justify-content: space-between; background: #1e293b; color: white; }
+        .modal-controls { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; background: #0f172a; color: white; border-bottom: 1px solid var(--glass-border); }
 
-        footer { text-align: center; padding: 40px; opacity: 0.5; }
+        footer { text-align: center; padding: 40px; opacity: 0.6; border-top: 1px solid var(--glass-border); margin-top: 50px; }
     </style>
 </head>
 <body class="dark">
@@ -80,99 +164,328 @@
 <nav>
     <h2>Campus Hustle</h2>
     <ul>
-        <li><a href="#">Home</a></li>
         <li><a href="#notes">Notes</a></li>
-        <li><a href="#sample-papers">Sample-Papers</a></li>
-        <li><a href="#premium">Premium</a></li>
-        <li onclick="toggleTheme()" style="cursor:pointer; font-size: 1.2rem;">🌗</li>
+        <li><a href="#sample-papers">Papers</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#store">Store</a></li>
+        <li><a href="#" onclick="openModal('videosModal')">AI Videos</a></li>
+        <li><a href="#" onclick="openModal('aiMathModal')">AI Math Solver</a></li>
+        <li><a href="#" onclick="openModal('quizModal')">Quick Quiz</a></li>
+        <li><a href="#premium" style="color: var(--gold);">👑 Premium</a></li>
+        <li onclick="toggleTheme()" style="cursor:pointer; font-size: 1.2rem; margin-left:10px;">🌗</li>
     </ul>
 </nav>
-
+<input type="text" id="globalSearch" onkeyup="searchSite()" placeholder="Search...">
 <div class="hero">
     <h1>UNEB Notes & Papers 2026</h1>
-    <p>Free notes. Premium sample papers & answers.</p>
+    <p style="font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto;">Access free premium notes, unlock official sample papers, hire top developers, and buy affordable scholastic & project materials.</p>
     <div class="level-tabs">
         <button class="tab-btn active" id="btnO" onclick="switchLevel('O')">O-Level</button>
         <button class="tab-btn" id="btnA" onclick="switchLevel('A')">A-Level</button>
     </div>
 </div>
+<div id="searchable-content">
 
-<section id="notes">
-    <h2 id="lvlTitle" style="color: #38bdf8; margin-bottom: 30px;">O-Level Subjects</h2>
-    <div id="notesGrid" class="grid"></div>
+    <section id="notes">
+        <h2 class="section-title" id="lvlTitle">O-Level Subjects</h2>
+        <div id="notesGrid" class="grid"></div>
+        <div class="note-item search-item"></div>
+    </section>
+
+    <section id="sample-papers">
+        <h2 class="section-title" style="color: var(--gold);">Sample Papers & Answers</h2>
+        <div id="papersGrid" class="grid"></div>
+    </section>
+
+</div>
+
+<section id="services">
+    <h2 class="section-title" style="color: var(--accent);">Our Digital Services</h2>
+    <div class="grid">
+        <div class="card store-item">
+            <div class="service-icon">🎨</div>
+            <h3 style="border:none; margin-bottom:5px;">Web Design & Dev</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px;">Custom, responsive websites for schools, businesses, and personal portfolios.</p>
+            <button class="btn btn-whatsapp" onclick="orderItem('Web Development Service')">Consult on WhatsApp</button>
+        </div>
+        <div class="card store-item">
+            <div class="service-icon">📱</div>
+            <h3 style="border:none; margin-bottom:5px;">CV Writing</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px;">Quality and standard CV's</p>
+            <button class="btn btn-whatsapp" onclick="orderItem('App Development Service')">Consult on WhatsApp</button>
+        </div>
+        <div class="card store-item">
+            <div class="service-icon">🚀</div>
+            <h3 style="border:none; margin-bottom:5px;">Assignment typing</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px;">Typing assignments in the shortest time possoble.</p>
+            <button class="btn btn-whatsapp" onclick="orderItem('SEO Service')">Consult on WhatsApp</button>
+        </div>
+        <div class="card store-item">
+            <div class="service-icon">🚀</div>
+            <h3 style="border:none; margin-bottom:5px;">Python Coding Help.</h3>
+            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px;">Get python coding help from experienced personnels.</p>
+            <button class="btn btn-whatsapp" onclick="orderItem('SEO Service')">Consult on WhatsApp</button>
+        </div>
+    </div>
 </section>
 
-<section id="sample-papers">
-    <h2 style="color: #fbbf24; margin-bottom: 10px;">Sample Papers & Answers</h2>
-    <p style="margin-bottom: 30px; opacity: 0.8;">One-time premium activation unlocks all papers.</p>
-    <div id="papersGrid" class="grid"></div>
+<section id="store">
+    <h2 class="section-title" style="color: #fff;">Campus Store</h2>
+    
+    <h3 class="category-title">Scholastic Materials</h3>
+    <div class="grid" id="scholasticGrid">
+        </div>
+
+    <h3 class="category-title">Project Work Items (Science/Tech)</h3>
+    <div class="grid" id="projectGrid">
+        </div>
 </section>
+
+<div id="quizModal" class="modal">
+    <div class="modal-header">
+        <h2 style="color: var(--accent);">Quick Questions (Test Yourself)</h2>
+        <button class="close-btn" onclick="closeModal('quizModal')">Close</button>
+    </div>
+    <div class="quiz-container" id="quizContainer">
+        </div>
+</div>
+
+<div id="videosModal" class="modal">
+    <div class="modal-header">
+        <h2 style="color: var(--primary);">AI Educational Animations</h2>
+        <button class="close-btn" onclick="closeModal('videosModal')">Close</button>
+    </div>
+    <div style="padding: 40px 8%; text-align: center;">
+        <div class="level-tabs" style="margin-bottom: 40px;">
+            <button class="tab-btn active" onclick="alert('Showing O-Level Videos')">O-Level Videos</button>
+            <button class="tab-btn" onclick="alert('Showing A-Level Videos')">A-Level Videos</button>
+        </div>
+        <div class="grid">
+            <div class="card"><h3>Photosynthesis 3D</h3><div style="height: 150px; background:#333; display:flex; align-items:center; justify-content:center;">▶ Play</div></div>
+            <div class="card"><h3>Chemical Bonds</h3><div style="height: 150px; background:#333; display:flex; align-items:center; justify-content:center;">▶ Play</div></div>
+            <div class="card"><h3>Newton's Laws</h3><div style="height: 150px; background:#333; display:flex; align-items:center; justify-content:center;">▶ Play</div></div>
+        </div>
+    </div>
+</div>
+
+<div id="aiMathModal" class="modal">
+    <div class="modal-header">
+        <h2 style="color: var(--accent);">AI Math & Science Solver</h2>
+        <button class="close-btn" onclick="closeModal('aiMathModal')">Close</button>
+    </div>
+    <div class="ai-math-box">
+        <p style="margin-bottom: 20px;">Upload a picture of your question or type it below.</p>
+        
+        <div class="file-upload" onclick="document.getElementById('mathFile').click()">
+            <h1 style="font-size: 3rem;">📸</h1>
+            <p>Tap to take a picture or upload image</p>
+            <input type="file" id="mathFile" style="display:none;" accept="image/*">
+        </div>
+        
+        <h3 style="margin: 20px 0;">OR</h3>
+        
+        <textarea id="mathText" rows="4" style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(0,0,0,0.3); color: white; border: 1px solid var(--glass-border);" placeholder="Type your math problem here... e.g. Solve for x: 2x + 5 = 15"></textarea>
+        
+        <button class="btn btn-primary" style="width: 100%; margin-top: 20px; padding: 15px; font-size: 1.1rem;" onclick="simulateAI()">🤖 Generate Answer</button>
+
+        <div id="aiResponse" class="ai-response">
+            <strong style="color: var(--accent);">AI Answer:</strong>
+            <p id="aiText">Analyzing...</p>
+        </div>
+    </div>
+</div>
+
+<div id="calc-widget">
+    <button class="calc-toggle" onclick="toggleCalc()">🖩</button>
+    <div class="calculator" id="casioCalc">
+        <div class="calc-screen" id="calcScreen">0</div>
+        <div class="calc-grid">
+            <button class="calc-btn calc-func" onclick="calcInput('Math.sin(')">sin</button>
+            <button class="calc-btn calc-func" onclick="calcInput('Math.cos(')">cos</button>
+            <button class="calc-btn calc-func" onclick="calcInput('Math.tan(')">tan</button>
+            <button class="calc-btn calc-ac" onclick="calcClear()">AC</button>
+            
+            <button class="calc-btn calc-func" onclick="calcInput('Math.sqrt(')">√</button>
+            <button class="calc-btn calc-func" onclick="calcInput('(')">(</button>
+            <button class="calc-btn calc-func" onclick="calcInput(')')">)</button>
+            <button class="calc-btn calc-func" onclick="calcInput('/')">÷</button>
+            
+            <button class="calc-btn" onclick="calcInput('7')">7</button>
+            <button class="calc-btn" onclick="calcInput('8')">8</button>
+            <button class="calc-btn" onclick="calcInput('9')">9</button>
+            <button class="calc-btn calc-func" onclick="calcInput('*')">×</button>
+            
+            <button class="calc-btn" onclick="calcInput('4')">4</button>
+            <button class="calc-btn" onclick="calcInput('5')">5</button>
+            <button class="calc-btn" onclick="calcInput('6')">6</button>
+            <button class="calc-btn calc-func" onclick="calcInput('-')">-</button>
+            
+            <button class="calc-btn" onclick="calcInput('1')">1</button>
+            <button class="calc-btn" onclick="calcInput('2')">2</button>
+            <button class="calc-btn" onclick="calcInput('3')">3</button>
+            <button class="calc-btn calc-func" onclick="calcInput('+')">+</button>
+            
+            <button class="calc-btn" onclick="calcInput('0')">0</button>
+            <button class="calc-btn" onclick="calcInput('.')">.</button>
+            <button class="calc-btn calc-func" onclick="calcDel()">DEL</button>
+            <button class="calc-btn calc-eq" onclick="calcEval()">=</button>
+        </div>
+    </div>
+</div>
 
 <section id="premium">
-    <div class="premium-box">
-        <h2 style="text-align:center; color: #fbbf24;">Activate Premium</h2>
-        <p style="text-align:center; font-size: 0.85rem; margin-bottom: 20px;">Unlock All Papers | Fee: 10,000 UGX<br><b>MTN: 0793467236 (Daniel T.)</b></p>
+    <h2 class="section-title" style="color: var(--gold);">Unlock Premium Content</h2>
+    <div class="premium-container">
         
-        <input type="text" id="uName" placeholder="Full Name">
-        <input type="text" id="uPhone" placeholder="Payment Number">
-        <button class="btn" style="width:100%" onclick="sendToWhatsApp()">1. Send Screenshot & Get Code</button>
-
-        <div style="margin-top: 30px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
-            <input type="text" id="activationInput" placeholder="Enter Received Code">
-            <button class="btn btn-view" style="width:100%; padding: 14px;" onclick="verifyCode()">2. Unlock Now</button>
+        <div class="premium-box">
+            <h2>Option 1: Fast Unlock</h2>
+            <p style="text-align:center; font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8;">Fee: 10,000 UGX<br><b>MTN: 0793467236 (Daniel T.)</b></p>
+            <input type="text" id="uName" placeholder="Full Name">
+            <input type="text" id="uPhone" placeholder="Payment Number">
+            <button class="btn btn-primary" style="width:100%" onclick="sendToWhatsAppPay()">1. Send Details to Admin</button>
+            <div style="margin-top: 25px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                <input type="text" id="activationInput" placeholder="Enter Received Code">
+                <button class="btn btn-gold" style="width:100%;" onclick="verifyCode()">2. Unlock Now</button>
+            </div>
         </div>
+
+        <div class="premium-box" style="border-color: #25D366;">
+            <h2 style="color: #25D366;">Option 2: Free Unlock</h2>
+            <p style="text-align:center; font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8;">Don't have money? Share our link to 10 WhatsApp groups to instantly unlock all premium papers!</p>
+            
+            <div style="text-align: center; padding: 20px 0;">
+                <span style="font-size: 3rem;">📢</span>
+                <div class="progress-bg">
+                    <div class="progress-bar" id="shareProgress"></div>
+                </div>
+                <p class="share-text" id="shareStatus">Shares: 0 / 10</p>
+                <button class="btn btn-whatsapp" style="padding: 15px;" onclick="shareToUnlock()">Share to WhatsApp</button>
+            </div>
+            <p style="font-size: 0.75rem; text-align: center; color: #fbbf24; margin-top: 10px;" id="shareWarning"></p>
+        </div>
+
     </div>
 </section>
 
 <div id="pdfModal">
     <div class="modal-controls">
-        <span id="modalTitle">Document Viewer</span>
-        <button class="btn" onclick="closePDF()" style="background:#ef4444">CLOSE</button>
+        <span id="modalTitle" style="font-weight: bold;">Document Viewer</span>
+        <button class="btn btn-primary" onclick="closePDF()">Close Document</button>
     </div>
     <iframe id="pdfFrame" src="about:blank"></iframe>
 </div>
 
-<footer>&copy; 2026 Campus Hustle Uganda</footer>
+<footer>&copy; 2026 Campus Hustle Uganda. Built for Students.</footer>
 
 <script>
+    // --- DATABASE ---
     let validCodes = ["CHU-001"];
+    let shareCount = parseInt(localStorage.getItem("shareCount")) || 0;
+    let isPremium = localStorage.getItem("isPremium") === "true";
+
     const data = {
         "O": {
             "Notes": {
-                "English": ["Grammar", "Composition"],
-                "Mathematics": ["Algebra", "Sets"],
-                "Chemistry": ["Matter", "Salts"]
+                "English": ["Grammar and Vocabularly", "Writing Skills", "Reading Comprehension", "Literature"],
+                "Mathematics": ["Algebra", "Statistics and Probability", "Measurement", "Geometry", "Numbers and Number Systems"],
+                "Chemistry": ["Organic Chemistry", "Acids Bases and Salts", "Electrochemistry", "Environmental Chemistry"],
+                "Geography": ["Human Geography", "Physical Geography", "Map skills and fieldwork"],
+                "Biology": ["Classification of living things", "Plant and Animal Nutrition", "Genetics and Ecology", "Respiration and excreation","Reproduction and Growth"],
+                "Physics": ["Electricity and Magnetism", "Space physics", "Waves and sound", "Light and Optical Instrument", "Heat and Mechanics", "Mordern Physics"],
+                "History": ["Acient Civilization", "European Exploration and Colonization", "African Independence Movements", "International relations", "World Wars"],
+                "Entrepreneurship": ["Bussiness Planning and Management", "Marketing and sales", "Finance and Accountig", "Entrepreneurship Skills"],
+                "C.R.E": ["Bible Studies", "Christian ethics and Values", "Church History and traditions", "Moral and Spiritual Development"],
+                "ICT": ["Computer Systems and Hardware", "Health and Safety", "E-waste Management", "Internet and Web technologies", "Software applications and Productivity Tools", "Programming and Coding Basics"],
+                "Agric": ["Crop production and Management", "Animal Husbandray and Livestock production", "Agricultral Economics and Marketing", "Soil Science and Land management"],
+                "F/N": ["Food and Nutrition Basics", "Food Preparation and Safety", "Nutrition and Health", "Food Processing and Preservation"],
+                "Physical Education": ["Physical fitness and conditioning", "Sports and games", "Health and wellness education", "Safety and injury prevention"],
+                "Kiswahili": ["Lugha na Mawasiliano", "Kusoma na Kufasiri", "Kuandika na Kueleza", "Fasihi na Utamaduni"],
+                "Fine Art and Design": ["Drawing and painting Techniques", "Colour theory and composition", "Sculpture and 3D art"],
+                "Literature in English": ["aaaa"],
+                "Luganda": ["Standard Orthography", "Oral literature", "Clans and Traditional Jobs", "Summary and Translation"],
+                "Technical Drawing": ["Geometrical Construction", "Scales and Measurements", "Orthographic Projections", "Isometric Drawings", "Perspective Drawings", "Building Construction", "Mechanical Drawing"],
+                "Latin": ["Latin Grammar", "Translation of latin texts", "Roman History and Culture", "Latin Vocabularly and Phrases"]
+
             },
-            "Papers": ["Math Sample 2026", "English Mock Answers", "Chem Guide"]
+            "Papers": ["MATH", "ENG", "CHEM", "GEOG", "BIO", "PHY", "HIST", "ENT", "C.R.E", "ICT", "AGRIC", "F/N", "P.E", "KISW", "FAD", "LIT", "LUG", "T.D", "LAT"]
         },
         "A": {
             "Notes": {
                 "General Paper": ["Essays", "Current Affairs"],
-                "Mathematics": ["Calculus", "Probability"]
+                "English": ["Grammar", "Composition"],
+                "Mathematics": ["Calculus", "Probability"],
+                "Chemistry": ["Matter", "Salts"],
+                "Geograghy": ["Human Geog", "Physical Geog"],
+                "Biology": ["Cell Bio", "Plant Bio", "Genetics", "Ecology"],
+                "Physics": ["Electricity and Magnetism", "Work Energy and Power", "Space physics"],
+                "History": ["mmmmmmm", "iiiiiiiiii", "iiiiiiiiii"],
+                "Entrepreneureship": ["hhhhhhhhhh", "ooooooooo", "uuuuuuuuuu"],
+                "C.R.E": ["Leisure", "Work", "Human Dignity"],
+                "ICT": ["ICT tools", "Health and Safety", "E-waste Management"],
+                "Agric": ["iiiiiii", "yyyyyyyyyyy", "mmmmmmmmm"],
+                "F/N": ["llll", "222222222222", "sssssssssss"],
             },
-            "Papers": ["Pure Math P1", "GP Final Prep", "Economics P2"]
+            "Papers": ["Pure Math", "G.P", "Economics P2","ENG", "CHEM", "GEOG", "BIO", "PHY", "HIST", "ENT", "C.R.E", "ICT", "AGRIC", "F/N", "SUB MATH", "LIT", "LUG", "LAT", "T.D", "P.E", "FAD", "KISW"]
         }
     };
 
+    const storeItems = {
+        scholastic: [
+            { name: "Scientific Calculator", icon: "🖩", price: "35,000 UGX" },
+            { name: "Mathematical Set", icon: "📐", price: "5,000 UGX" },
+            { name: "Graph Book (100 Pgs)", icon: "📈", price: "3,000 UGX" },
+            { name: "Exercise Books (1doz)", icon: "📚", price: "12,000 UGX" },
+            { name: "Textbooks (UNEB)", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Long rulers", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Rubbers", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Pens", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Pencils", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Sharpenners", icon: "📖", price: "From 25,000 UGX" },
+            { name: "Art books", icon: "📖", price: "From 25,000 UGX" },
+            { name: "School Bag (Durable)", icon: "🎒", price: "45,000 UGX" }
+        ],
+        projects: [
+            { name: "DC Motor (High Speed)", icon: "⚙️", price: "5,000 UGX" },
+            { name: "Mini Solar Panel (5V)", icon: "☀️", price: "15,000 UGX" },
+            { name: "Transformer (Step down)", icon: "⚡", price: "20,000 UGX" },
+            { name: "Thermoelectric Generator", icon: "🔥", price: "25,000 UGX" },
+            { name: "Copper Wire (1 Roll)", icon: "🔌", price: "10,000 UGX" },
+            { name: "Auxial Fan", icon: "🔌", price: "10,000 UGX" },
+            { name: "Battries", icon: "🔌", price: "10,000 UGX" },
+            { name: "Cell holders", icon: "🔌", price: "10,000 UGX" },
+            { name: "Magnets", icon: "🔌", price: "10,000 UGX" },
+            { name: "Glue", icon: "🔌", price: "10,000 UGX" },
+            { name: "Glue gun", icon: "🔌", price: "10,000 UGX" },
+            { name: "LED Lights Pack", icon: "💡", price: "3,000 UGX" }
+        ]
+    };
+
     let currentLevel = "O";
-    // This looks at the browser memory to see if they already paid
-    let isPremium = localStorage.getItem("isPremium") === "true";
+
+    // --- INITIALIZATION ---
+    function init() {
+        updateShareUI();
+        switchLevel('O');
+        renderStore();
+        renderQuiz();
+    }
 
     function switchLevel(lvl) {
         currentLevel = lvl;
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.getElementById('btn' + lvl).classList.add('active');
         document.getElementById('lvlTitle').innerText = lvl + "-Level Subjects";
-        render();
+        renderNotesAndPapers();
     }
 
-    function render() {
+    // --- RENDER FUNCTIONS ---
+    function renderNotesAndPapers() {
         const nGrid = document.getElementById("notesGrid");
         nGrid.innerHTML = "";
         const notes = data[currentLevel].Notes;
         for (let sub in notes) {
             let card = document.createElement("div");
-            card.className = "card";
+            card.className = "card search-item";
             card.innerHTML = `<h3>${sub}</h3>`;
             notes[sub].forEach(topic => {
                 card.innerHTML += `<div class="note-item"><span>${topic}</span><button class="btn btn-view" onclick="openPDF('${topic}', false)">Read</button></div>`;
@@ -185,82 +498,257 @@
         data[currentLevel].Papers.forEach(paper => {
             pGrid.innerHTML += `
                 <div class="paper-card">
-                    <span class="lock-status">${isPremium ? '🔓 UNLOCKED' : '🔒 LOCKED'}</span>
-                    <h4 style="margin: 10px 0;">${paper}</h4>
-                    <button class="btn" style="background:#fbbf24; color:black;" onclick="openPDF('${paper}', true)">View Answers</button>
+                    <span class="lock-status">${isPremium ? '🔓 UNLOCKED' : '🔒 PREMIUM'}</span>
+                    <h4 style="margin: 15px 0; color:white; font-size:1.1rem;">${paper} 2026</h4>
+                    <button class="btn btn-gold" style="width:100%" onclick="openPDF('${paper}', true)">View Paper & Answers</button>
                 </div>`;
         });
     }
 
-    function openPDF(title, isPaper) {
+    function renderStore() {
+        const sGrid = document.getElementById("scholasticGrid");
+        const pGrid = document.getElementById("projectGrid");
+        
+        storeItems.scholastic.forEach(item => {
+            sGrid.innerHTML += `
+                <div class="card store-item">
+                    <div class="service-icon">${item.icon}</div>
+                    <h4>${item.name}</h4>
+                    <span class="store-price">${item.price}</span>
+                    <button class="btn btn-view" style="width:100%;" onclick="orderItem('${item.name}')">Order Now</button>
+                </div>`;
+        });
 
-    if (isPaper && !isPremium) {
-
-        alert("🔒 PREMIUM CONTENT\n\nPlease activate Premium first.\nScroll down to Unlock Premium.");
-
-        document.getElementById("premium").scrollIntoView({ behavior: "smooth" });
-
-        return;
+        storeItems.projects.forEach(item => {
+            pGrid.innerHTML += `
+                <div class="card store-item">
+                    <div class="service-icon">${item.icon}</div>
+                    <h4>${item.name}</h4>
+                    <span class="store-price">${item.price}</span>
+                    <button class="btn btn-view" style="width:100%;" onclick="orderItem('${item.name}')">Order Now</button>
+                </div>`;
+        });
+    }
+    // --- 2. GLOBAL SEARCH ---
+    function searchSite() {
+        let filter = document.getElementById('globalSearch').value.toUpperCase();
+        let items = document.querySelectorAll('.search-item');
+        items.forEach(item => {
+            let txtValue = item.textContent || item.innerText;
+            item.style.display = txtValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+        });
     }
 
-    document.getElementById("modalTitle").innerText = title;
+    // --- 3. MODALS ---
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-    const samplePDF = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+    // --- 4. QUICK QUIZ LOGIC ---
+    // Note to Dev: You can add all 60 questions into this array format.
+    const questions = [
+        { q: "What is the chemical formula of water?", options: ["H2O", "Cl2", "Br", "NaCl"], ans: 0, comment: "Correct! Water has 2 Hydrogen atoms and 1 Oxygen atom." },
+        { q: "What is the powerhouse of the cell?", options: ["Nucleus", "Ribosome", "Mitochondria", "Chloroplast"], ans: 2, comment: "Mitochondria generate most of the chemical energy needed." },
+        { q: "What is the value of Pi (approx)?", options: ["2.14", "3.14", "4.14", "3.41"], ans: 1, comment: "Pi is the ratio of a circle's circumference to its diameter." },
+        { q: "Who discovered Gravity?", options: ["Einstein", "Tesla", "Newton", "Galileo"], ans: 2, comment: "Sir Isaac Newton formulated the laws of motion and universal gravitation." },
+        { q: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], ans: 1, comment: "Mars gets its red color from iron oxide (rust) on its surface." }
+        // ADD REMAINING 55 QUESTIONS HERE
+    ];
 
-    document.getElementById("pdfFrame").src = samplePDF;
-    document.getElementById("pdfModal").style.display = "flex";
-    document.body.style.overflow = "hidden";
-}
+    function renderQuiz() {
+        const qContainer = document.getElementById("quizContainer");
+        qContainer.innerHTML = questions.map((q, qIndex) => `
+            <div class="question-box">
+                <h3>${qIndex + 1}. ${q.q}</h3>
+                <div class="options-grid">
+                    ${q.options.map((opt, oIndex) => `
+                        <button class="option-btn" onclick="checkAnswer(${qIndex}, ${oIndex}, this)">${['A','B','C','D'][oIndex]}) ${opt}</button>
+                    `).join('')}
+                </div>
+                <div id="feedback-${qIndex}" class="feedback"></div>
+            </div>
+        `).join('');
+    }
 
+    function checkAnswer(qIndex, selectedIndex, btnElement) {
+        let q = questions[qIndex];
+        let feedback = document.getElementById(`feedback-${qIndex}`);
+        let allBtns = btnElement.parentElement.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true); // Lock answers
+
+        if(selectedIndex === q.ans) {
+            btnElement.style.background = "#22c55e";
+            feedback.className = "feedback correct";
+            feedback.innerHTML = `✅ Correct! ${q.comment}`;
+        } else {
+            btnElement.style.background = "#ef4444";
+            allBtns[q.ans].style.background = "#22c55e"; // Show correct
+            feedback.className = "feedback wrong";
+            feedback.innerHTML = `❌ Incorrect. The correct answer was ${['A','B','C','D'][q.ans]}. <br><br>📝 Note: ${q.comment}`;
+        }
+        feedback.style.display = "block";
+    }
+
+    // --- 5. CASIO CALCULATOR LOGIC ---
+    let calcDisplay = "0";
+    function toggleCalc() {
+        let calc = document.getElementById("casioCalc");
+        calc.style.display = calc.style.display === "block" ? "none" : "block";
+    }
+    function updateScreen() { document.getElementById("calcScreen").innerText = calcDisplay; }
+    function calcInput(val) {
+        if(calcDisplay === "0" && val !== ".") calcDisplay = val;
+        else calcDisplay += val;
+        updateScreen();
+    }
+    function calcClear() { calcDisplay = "0"; updateScreen(); }
+    function calcDel() { calcDisplay = calcDisplay.slice(0, -1) || "0"; updateScreen(); }
+    function calcEval() {
+        try { if (/^[0-9+\-*/().Math\s]+$/.test(calcDisplay)) {
+    calcDisplay = String(eval(calcDisplay));
+} else {
+    calcDisplay = "Error";
+} } 
+        catch(e) { calcDisplay = "Syntax Error"; setTimeout(calcClear, 1500); }
+        updateScreen();
+    }
+
+    // --- 6. AI MATH SOLVER (SIMULATION) ---
+    function simulateAI() {
+        const resBox = document.getElementById("aiResponse");
+        const txtBox = document.getElementById("aiText");
+        resBox.style.display = "block";
+        txtBox.innerHTML = "<em>Analyzing image/text using AI... Please wait.</em>";
+        
+        setTimeout(() => {
+            txtBox.innerHTML = "<strong>Step 1:</strong> Isolate the variable.<br><strong>Step 2:</strong> 2x = 15 - 5<br><strong>Step 3:</strong> 2x = 10<br><strong>Final Answer:</strong> x = 5<br><br><em>(Note: This is a frontend simulation. Backend API integration required for real image processing).</em>";
+        }, 2000);
+    }
+
+    // --- 7. SHARE & REFERRAL SYSTEM ---
+    function shareForDiscount() {
+        window.open(`whatsapp://send?text=Get Notes on Campus Hustle!`, "_blank");
+        setTimeout(() => {
+            if(shareCount < 10) {
+                shareCount++;
+                document.getElementById("shareStatus").innerText = `Shares: ${shareCount} / 10`;
+                if(shareCount === 10) {
+                    document.getElementById("shareStatus").innerText = "🎉 50% Discount Unlocked!";
+                    document.getElementById("shareStatus").style.color = "#22c55e";
+                    document.getElementById("discountCodeDiv").style.display = "block";
+                }
+            }
+        }, 1000);
+    }
+
+    function submitReferral() {
+        let num = document.getElementById("refNumber").value;
+        if(num.length > 8) { alert(`Success! When you pay, number ${num} will automatically receive Full Premium Access.`); }
+        else { alert("Please enter a valid phone number."); }
+    }
+
+    // Init Page
+    switchLevel('O');
+    renderQuiz();
+
+    // --- PREMIUM LOGIC ---
+    function sendToWhatsAppPay() {
+        const name = document.getElementById("uName").value.trim();
+        const phone = document.getElementById("uPhone").value.trim();
+        if (!name || !phone) return alert("Enter details first");
+        const code = "CHU-" + Math.random().toString(36).substring(2, 6).toUpperCase();
+        validCodes.push(code);
+        const msg = `Hello Admin, I paid 10,000 UGX for Premium.%0A*Name:* ${name}%0A*Number:* ${phone}%0A*Code:* ${code}%0A(Attaching screenshot)`;
+        window.open(`https://wa.me/256793467236?text=${msg}`, "_blank");
+    }
+
+    function verifyCode() {
+        const input = document.getElementById("activationInput").value.trim().toUpperCase();
+        if (validCodes.includes(input)) {
+            localStorage.setItem("isPremium", "true");
+            isPremium = true;
+            validCodes = validCodes.filter(c => c !== input);
+            alert("✓ Success! Premium Activated Permanently.");
+            renderNotesAndPapers();
+            document.getElementById("sample-papers").scrollIntoView({ behavior: "smooth" });
+        } else {
+            alert("Incorrect code. Please contact Admin.");
+        }
+    }
+
+    // --- SHARE TO UNLOCK LOGIC ---
+    function shareToUnlock() {
+        if (isPremium) return alert("You already have Premium access!");
+        
+        // WhatsApp Share Link
+        const shareText = "Hey! I am getting free UNEB notes and 2026 Sample Papers with Answers from Campus Hustle Uganda. Get yours here: https://campushustle.ug";
+        window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
+
+        // Simulate tracking shares (with a slight delay to mimic opening the app)
+        setTimeout(() => {
+            if (shareCount < 10) {
+                shareCount++;
+                localStorage.setItem("shareCount", shareCount);
+                updateShareUI();
+                
+                if (shareCount === 10) {
+                    localStorage.setItem("isPremium", "true");
+                    isPremium = true;
+                    alert("🎉 Congratulations! You have unlocked Premium Papers!");
+                    renderNotesAndPapers();
+                } else {
+                    document.getElementById("shareWarning").innerText = "Keep sharing! You need " + (10 - shareCount) + " more group(s).";
+                }
+            }
+        }, 1500);
+    }
+
+    function updateShareUI() {
+        if (isPremium) {
+            document.getElementById("shareProgress").style.width = "100%";
+            document.getElementById("shareStatus").innerText = "Premium Unlocked! ✅";
+            document.getElementById("shareStatus").style.color = "#25D366";
+            document.getElementById("shareWarning").innerText = "";
+        } else {
+            const percentage = (shareCount / 10) * 100;
+            document.getElementById("shareProgress").style.width = percentage + "%";
+            document.getElementById("shareStatus").innerText = `Shares: ${shareCount} / 10`;
+        }
+    }
+
+    // --- UTILITIES ---
+    function orderItem(itemName) {
+        const msg = `Hello Campus Hustle! I would like to order/inquire about: *${itemName}*`;
+        window.open(`https://wa.me/256793467236?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+
+    function openPDF(title, isPaper) {
+        if (isPaper && !isPremium) {
+            alert("🔒 PREMIUM CONTENT\nPlease activate Premium first.");
+            document.getElementById("premium").scrollIntoView({ behavior: "smooth" });
+            return;
+        }
+        document.getElementById("modalTitle").innerText = title;
+        // Connect your actual PDF paths here
+        const fileName = title.replace(/\s+/g, "_");
+document.getElementById("pdfFrame").src = `pdfs/${fileName}.pdf`;
+        document.getElementById("pdfModal").style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
 
     function closePDF() {
         document.getElementById("pdfModal").style.display = "none";
-        document.getElementById("pdfFrame").src = "about:blank"; // Clears frame memory
+        document.getElementById("pdfFrame").src = "about:blank";
         document.body.style.overflow = "auto";
     }
-
-    function sendToWhatsApp() {
-    const name = document.getElementById("uName").value.trim();
-    const phone = document.getElementById("uPhone").value.trim();
-
-    if (!name || !phone) return alert("Enter details first");
-
-    // Generate a unique code for this user
-    const code = "CHU-" + Math.random().toString(36).substring(2, 6).toUpperCase();
-
-    // Add code to validCodes array
-    validCodes.push(code);
-
-
-    const msg = `Hello Daniel, I've paid 10,000 UGX for Campus Hustle Premium.%0A*Name:* ${name}%0A*Number:* ${phone}%0A*Code:* ${code}%0A(Attaching screenshot)`;
-    window.open(`https://wa.me/256793467236?text=${msg}`, "_blank");
-}
-
-    function verifyCode() {
-    const input = document.getElementById("activationInput").value.trim().toUpperCase();
-
-    if (validCodes.includes(input)) {
-        // Valid code → unlock
-        localStorage.setItem("isPremium", "true");
-        isPremium = true;
-
-        // Remove code so it cannot be reused
-        validCodes = validCodes.filter(c => c !== input);
-
-        alert("✓ Success! Premium Activated Permanently.");
-        render(); // Updates UI instantly
-        document.getElementById("sample-papers").scrollIntoView({ behavior: "smooth" });
-    } else {
-        alert("Incorrect or expired code. Contact Daniel for a valid premium code.");
-    }
-}
 
     function toggleTheme() {
         document.body.classList.toggle("light");
         document.body.classList.toggle("dark");
+        // Dark theme adjustments handled via CSS body.light overrides if needed
     }
 
-    render();
+    // Boot App
+    window.onload = init;
 </script>
 </body>
 </html>
